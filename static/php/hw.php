@@ -33,17 +33,17 @@ class HW extends Exercicio{
 		$this->p = $this->arredondar(((2 * $this->aa) + ($this->ab))/$this->n2);
 		$this->q = $this->arredondar(1 - $this->p);
 
-		$this->esp_aa = $this->arredondar(($this->p**2) * $this->n);
-		$this->esp_ab = $this->arredondar((2 *$this->p * $this->q) * $this->n);
-		$this->esp_bb = $this->arredondar(($this->q**2) * $this->n);
+		$this->esp_aa = $this->arredondar(pow($this->p, 2)* $this->n);
+		$this->esp_ab = $this->arredondar(2 *$this->p * $this->q * $this->n);
+		$this->esp_bb = $this->arredondar(pow($this->q, 2) * $this->n);
 
 		$this->d_aa =  $this->arredondar($this->aa - $this->esp_aa);
 		$this->d_ab =  $this->arredondar($this->ab - $this->esp_ab);
 		$this->d_bb =  $this->arredondar($this->bb - $this->esp_bb);
 
-		$this->d2_aa = $this->arredondar($this->d_aa**2);
-		$this->d2_ab = $this->arredondar($this->d_ab**2);
-		$this->d2_bb = $this->arredondar($this->d_bb**2);
+		$this->d2_aa = $this->arredondar(pow($this->d_aa, 2));
+		$this->d2_ab = $this->arredondar(pow($this->d_ab, 2));
+		$this->d2_bb = $this->arredondar(pow($this->d_bb, 2));
 
 		$this->chi2_aa = $this->arredondar($this->d2_aa/$this->esp_aa);
 		$this->chi2_ab = $this->arredondar($this->d2_ab/$this->esp_ab);
@@ -51,7 +51,7 @@ class HW extends Exercicio{
 
 		$this->chi2_total = $this->arredondar($this->chi2_aa + $this->chi2_ab + $this->chi2_bb);
 
-		
+		$this->heterozigose = $this->arredondar(2 *$this->n* $this->arredondar($this->p) * $this->arredondar($this->q));
 
 		 if (floatval($this->chi2_total) > floatval($this->hc))
 		 	$this->h0 = 0;

@@ -133,7 +133,7 @@ class Normal extends Exercicio{
 
 }
 
-$normal = new Normal();
+
 
 
 ?>
